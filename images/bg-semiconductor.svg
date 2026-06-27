@@ -1,74 +1,86 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="base" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#040c18" />
-      <stop offset="100%" stop-color="#081a2c" />
-    </linearGradient>
-    <radialGradient id="chip-glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#7fe8d5" stop-opacity="0.28" />
-      <stop offset="100%" stop-color="#040c18" stop-opacity="0" />
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#091622" />
+      <stop offset="80%" stop-color="#04101c" />
+      <stop offset="100%" stop-color="#02070f" />
     </radialGradient>
-    <linearGradient id="trace" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#5ed1b9" stop-opacity="0.75" />
-      <stop offset="100%" stop-color="#84c8ff" stop-opacity="0.75" />
+    <radialGradient id="wafer-glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#59d2c7" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#050e16" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="wafer-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2333" />
+      <stop offset="100%" stop-color="#0a1a29" />
     </linearGradient>
+    <pattern id="wafer-die" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <rect width="80" height="80" fill="rgba(255,255,255,0.02)" />
+      <path d="M0 0 L80 0 M0 20 L80 20 M0 40 L80 40 M0 60 L80 60 M20 0 L20 80 M40 0 L40 80 M60 0 L60 80" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    </pattern>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
   </defs>
 
-  <rect width="1600" height="900" fill="url(#base)" />
-  <circle cx="820" cy="450" r="360" fill="url(#chip-glow)" />
+  <rect width="1600" height="900" fill="url(#bg)" />
 
-  <g opacity="0.18" fill="none" stroke="#7cd4c3" stroke-width="3">
-    <path d="M530 250h540" />
-    <path d="M530 310h540" />
-    <path d="M530 370h540" />
-    <path d="M530 430h540" />
-    <path d="M530 490h540" />
-    <path d="M530 550h540" />
+  <circle cx="800" cy="430" r="380" fill="url(#wafer-ring)" opacity="0.95" />
+  <circle cx="800" cy="430" r="340" fill="url(#wafer-glow)" filter="url(#softGlow)" />
+
+  <g opacity="0.22" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2">
+    <circle cx="800" cy="430" r="280" />
+    <circle cx="800" cy="430" r="230" />
+    <circle cx="800" cy="430" r="180" />
+    <circle cx="800" cy="430" r="135" />
+    <circle cx="800" cy="430" r="90" />
+    <circle cx="800" cy="430" r="45" />
   </g>
 
-  <rect x="400" y="210" width="800" height="480" rx="48" fill="rgba(5, 26, 45, 0.88)" stroke="#4ebca9" stroke-width="4" />
-  <rect x="430" y="240" width="740" height="420" rx="32" fill="rgba(6, 30, 52, 0.54)" />
+  <circle cx="800" cy="430" r="286" fill="url(#wafer-die)" />
 
-  <g opacity="0.9">
-    <path d="M520 260h540" stroke="#65d4d9" stroke-width="2" />
-    <path d="M520 320h540" stroke="#65d4d9" stroke-width="2" />
-    <path d="M520 380h540" stroke="#65d4d9" stroke-width="2" />
-    <path d="M520 440h540" stroke="#65d4d9" stroke-width="2" />
-    <path d="M520 500h540" stroke="#65d4d9" stroke-width="2" />
-    <path d="M520 560h540" stroke="#65d4d9" stroke-width="2" />
+  <g fill="none" stroke="rgba(90,214,167,0.24)" stroke-width="2">
+    <path d="M435 395 L640 395" />
+    <path d="M950 395 L1165 395" />
+    <path d="M600 290 L840 290" />
+    <path d="M600 530 L840 530" />
+    <path d="M700 230 L700 625" />
+    <path d="M900 230 L900 625" />
   </g>
 
-  <g fill="none" stroke="url(#trace)" stroke-width="2.5" opacity="0.72">
-    <path d="M520 260v420" />
-    <path d="M640 260v420" />
-    <path d="M760 260v420" />
-    <path d="M880 260v420" />
-    <path d="M1000 260v420" />
-    <path d="M1120 260v420" />
+  <g fill="none" stroke="rgba(144,233,255,0.18)" stroke-width="1.4">
+    <path d="M680 210 L760 210" />
+    <path d="M750 210 L810 290" />
+    <path d="M810 290 L890 290" />
+    <path d="M620 520 L700 520" />
+    <path d="M700 520 L760 600" />
   </g>
 
-  <g fill="#7de4d1" opacity="0.9">
-    <circle cx="540" cy="300" r="8" />
-    <circle cx="700" cy="340" r="8" />
-    <circle cx="960" cy="500" r="8" />
-    <circle cx="1150" cy="410" r="8" />
+  <g fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1">
+    <path d="M800 150 L840 180" />
+    <path d="M760 170 L820 230" />
+    <path d="M860 590 L900 640" />
+    <path d="M940 540 L980 560" />
+    <path d="M675 640 L720 670" />
   </g>
 
-  <g fill="none" stroke="#86e3ff" stroke-width="1.8" opacity="0.28">
-    <path d="M460 220h100" />
-    <path d="M460 640h100" />
-    <path d="M1040 220h100" />
-    <path d="M1040 640h100" />
+  <g fill="rgba(94,214,166,0.22)">
+    <circle cx="745" cy="360" r="10" />
+    <circle cx="870" cy="470" r="10" />
+    <circle cx="780" cy="520" r="8" />
+    <circle cx="910" cy="320" r="8" />
   </g>
 
-  <g fill="#92e9ff" opacity="0.28">
-    <circle cx="380" cy="200" r="18" />
-    <circle cx="1240" cy="680" r="16" />
-  </g>
+  <rect x="180" y="120" width="240" height="180" rx="28" fill="rgba(255,255,255,0.02)" />
+  <rect x="1180" y="620" width="220" height="140" rx="18" fill="rgba(255,255,255,0.02)" />
+  <rect x="130" y="700" width="340" height="120" rx="48" fill="rgba(255,255,255,0.015)" />
 
-  <g fill="none" stroke="#78d8d2" stroke-width="1.1" opacity="0.22">
-    <path d="M120 760h1360" />
-    <path d="M120 680h1360" />
-    <path d="M120 600h1360" />
+  <g fill="rgba(255,255,255,0.08)">
+    <circle cx="235" cy="175" r="12" />
+    <circle cx="1510" cy="780" r="14" />
+    <circle cx="360" cy="760" r="10" />
   </g>
 </svg>
