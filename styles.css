@@ -23,17 +23,17 @@ body {
   position: relative;
   background-color: #06131f;
   background-image:
-    linear-gradient(0deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
     url("images/bg-wafer.svg"),
-    radial-gradient(circle at 24% 18%, rgba(86, 214, 166, 0.1), transparent 24%),
-    radial-gradient(circle at 82% 82%, rgba(107, 168, 255, 0.08), transparent 22%),
-    linear-gradient(135deg, rgba(1, 8, 18, 0.95), rgba(2, 12, 24, 0.94));
+    radial-gradient(circle at 24% 18%, rgba(86, 214, 166, 0.08), transparent 24%),
+    radial-gradient(circle at 82% 82%, rgba(107, 168, 255, 0.06), transparent 22%),
+    linear-gradient(135deg, rgba(1, 8, 18, 0.96), rgba(2, 12, 24, 0.94));
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center, center center, center center, left top, right bottom, center center;
   background-size: 100%, 100%, cover, 28%, 30%, cover;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 body::before {
@@ -128,18 +128,22 @@ img {
 }
 
 .hero {
-  padding: 4rem 0 3.5rem;
+  padding: 5rem 0 3.5rem;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.95fr;
-  gap: 1.75rem;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
   align-items: center;
 }
 
 .page-hero {
   padding-top: 3.5rem;
+}
+
+.section {
+  padding: 3.5rem 0;
 }
 
 .eyebrow {
@@ -175,8 +179,8 @@ h3 {
 .section p,
 .card p,
 .insight-card p {
-  color: rgba(239, 244, 250, 0.92);
-  font-size: 1rem;
+  color: rgba(239, 244, 250, 0.9);
+  font-size: 0.98rem;
 }
 
 .hero .eyebrow,
@@ -207,7 +211,39 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1.25rem;
+  margin-top: 1.1rem;
+}
+
+.hero-card {
+  background: rgba(8, 18, 34, 0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 50px rgba(1, 11, 22, 0.16);
+  padding: 1.5rem;
+}
+
+.hero-card ul {
+  margin: 0;
+  padding-left: 1rem;
+  color: rgba(239, 244, 250, 0.88);
+}
+
+.hero-card li {
+  margin-bottom: 0.8rem;
+  list-style: none;
+  position: relative;
+  padding-left: 1.15rem;
+}
+
+.hero-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .tag-list {
@@ -219,11 +255,11 @@ h3 {
 
 .tag {
   display: inline-block;
-  padding: 0.45rem 0.7rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.08);
   color: var(--muted);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .button {
@@ -251,18 +287,22 @@ h3 {
   background: rgba(255,255,255,0.07);
 }
 
+.section {
+  padding: 3.25rem 0;
+}
+
 .card,
 .insight-card,
 .cta-box,
 .contact-card,
 .quote-box,
 .feature-list article {
-  background: rgba(6, 16, 28, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.5rem;
-  box-shadow: 0 24px 52px rgba(1, 11, 22, 0.28);
-  backdrop-filter: blur(22px);
-  color: rgba(239, 244, 250, 0.9);
+  background: rgba(8, 18, 32, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.75rem;
+  box-shadow: 0 20px 42px rgba(1, 11, 22, 0.16);
+  backdrop-filter: blur(24px);
+  color: rgba(239, 244, 250, 0.92);
 }
 
 .site-header {
@@ -319,8 +359,28 @@ h3 {
 }
 
 .section-intro {
-  max-width: 720px;
-  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-bottom: 1.75rem;
+}
+
+.section-intro h2 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: 38rem;
+}
+
+.card h3,
+.author-grid h3,
+.feature-list article h3 {
+  font-size: 1.12rem;
+  margin-bottom: 0.7rem;
+}
+
+.card p,
+.feature-list article p,
+.author-grid p {
+  max-width: 36rem;
+  line-height: 1.7;
 }
 
 .page-hero {
@@ -407,7 +467,7 @@ h3 {
 
 .author-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
@@ -415,7 +475,7 @@ h3 {
 .insight-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 1.35rem;
   margin-top: 1.75rem;
 }
 
