@@ -21,18 +21,21 @@ body {
   font-family: Inter, "Segoe UI", Roboto, sans-serif;
   color: var(--text);
   position: relative;
-  background-color: #06131f;
+  background-color: #040e1b;
   background-image:
+    linear-gradient(180deg, rgba(3, 9, 20, 0.92), rgba(3, 9, 20, 0.92)),
+    url("images/WhatsApp Image 2026-06-27 at 13.44.41.jpeg"),
+    url("images/WhatsApp Image 2026-06-27 at 13.44.40.jpeg"),
     linear-gradient(0deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
     url("images/bg-wafer.svg"),
     radial-gradient(circle at 24% 18%, rgba(86, 214, 166, 0.08), transparent 24%),
-    radial-gradient(circle at 82% 82%, rgba(107, 168, 255, 0.06), transparent 22%),
-    linear-gradient(135deg, rgba(1, 8, 18, 0.96), rgba(2, 12, 24, 0.94));
+    radial-gradient(circle at 82% 82%, rgba(107, 168, 255, 0.06), transparent 22%);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: center center, center center, center center, left top, right bottom, center center;
-  background-size: 100%, 100%, cover, 28%, 30%, cover;
+  background-position: center center, top 14% right 6%, bottom 12% left 6%, center center, center center, center center, left top, right bottom;
+  background-size: cover, 38%, 42%, 100%, 100%, cover, 28%, 30%;
+  background-blend-mode: normal, overlay, overlay, normal, normal, normal, normal, normal;
   line-height: 1.75;
 }
 
@@ -41,9 +44,9 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  opacity: 0.10;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  opacity: 0.08;
   pointer-events: none;
   z-index: 0;
 }
@@ -309,8 +312,8 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(18px);
-  background: rgba(5, 11, 21, 0.95);
+  backdrop-filter: blur(22px);
+  background: rgba(4, 10, 18, 0.78);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
