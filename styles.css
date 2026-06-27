@@ -21,19 +21,19 @@ body {
   font-family: Inter, "Segoe UI", Roboto, sans-serif;
   color: var(--text);
   position: relative;
-  background-color: #020b16;
+  background-color: #06131f;
   background-image:
-    linear-gradient(0deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
     url("images/bg-wafer.svg"),
-    radial-gradient(circle at 24% 18%, rgba(86, 214, 166, 0.14), transparent 24%),
-    radial-gradient(circle at 82% 82%, rgba(107, 168, 255, 0.12), transparent 22%),
-    linear-gradient(135deg, rgba(1, 8, 18, 0.96), rgba(2, 12, 24, 0.93));
+    radial-gradient(circle at 24% 18%, rgba(86, 214, 166, 0.1), transparent 24%),
+    radial-gradient(circle at 82% 82%, rgba(107, 168, 255, 0.08), transparent 22%),
+    linear-gradient(135deg, rgba(1, 8, 18, 0.95), rgba(2, 12, 24, 0.94));
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center, center center, center center, left top, right bottom, center center;
   background-size: 100%, 100%, cover, 28%, 30%, cover;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 body::before {
@@ -128,23 +128,23 @@ img {
 }
 
 .hero {
-  padding: 5.5rem 0 4rem;
+  padding: 4rem 0 3.5rem;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
-  gap: 2rem;
+  grid-template-columns: 1.1fr 0.95fr;
+  gap: 1.75rem;
   align-items: center;
 }
 
 .page-hero {
-  padding-top: 4.5rem;
+  padding-top: 3.5rem;
 }
 
 .eyebrow {
   color: var(--accent);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -154,13 +154,21 @@ img {
 h1,
 h2,
 h3 {
-  line-height: 1.2;
+  line-height: 1.3;
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
-  margin-bottom: 1rem;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
 }
 
 .hero-copy,
@@ -199,14 +207,14 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
 }
 
 .tag {
@@ -249,12 +257,12 @@ h1 {
 .contact-card,
 .quote-box,
 .feature-list article {
-  background: rgba(6, 16, 28, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(6, 16, 28, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
-  box-shadow: 0 30px 70px rgba(1, 11, 22, 0.4);
-  backdrop-filter: blur(26px);
-  color: rgba(239, 244, 250, 0.92);
+  box-shadow: 0 24px 52px rgba(1, 11, 22, 0.28);
+  backdrop-filter: blur(22px);
+  color: rgba(239, 244, 250, 0.9);
 }
 
 .site-header {
@@ -311,12 +319,12 @@ h1 {
 }
 
 .section-intro {
-  max-width: 760px;
+  max-width: 720px;
   margin-bottom: 1.5rem;
 }
 
 .page-hero {
-  padding-top: 4rem;
+  padding-top: 3.5rem;
 }
 
 .hero-media img {
@@ -329,14 +337,14 @@ h1 {
 .about-layout,
 .contact-layout {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.1fr 0.95fr;
   gap: 2rem;
   align-items: start;
 }
 
 .feature-list {
   display: grid;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
 .feature-list article {
