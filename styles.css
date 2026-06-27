@@ -23,16 +23,13 @@ body {
   position: relative;
   background-color: #040e1b;
   background-image:
-    url("images/WhatsApp%20Image%202026-06-27%20at%2013.44.41.jpeg"),
-    url("images/WhatsApp%20Image%202026-06-27%20at%2013.44.40.jpeg"),
-    url("images/bg-wafer.svg"),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    linear-gradient(180deg, rgba(4, 10, 18, 0.72), rgba(4, 10, 18, 0.72)),
+    url("images/WhatsApp Image 2026-06-27 at 13.44.41.jpeg");
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: top 14% right 6%, bottom 12% left 6%, center center, center center, center center;
-  background-size: 38%, 42%, cover, 100%, 100%;
-  background-blend-mode: overlay, overlay, normal, normal, normal;
+  background-position: center center;
+  background-size: cover;
+  background-blend-mode: overlay;
   line-height: 1.75;
 }
 
