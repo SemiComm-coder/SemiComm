@@ -25,7 +25,7 @@ body {
   background-image:
     linear-gradient(0deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    url("images/bg-semiconductor.svg"),
+    url("images/bg-wafer.svg"),
     radial-gradient(circle at 24% 18%, rgba(86, 214, 166, 0.14), transparent 24%),
     radial-gradient(circle at 82% 82%, rgba(107, 168, 255, 0.12), transparent 22%),
     linear-gradient(135deg, rgba(1, 8, 18, 0.96), rgba(2, 12, 24, 0.93));
