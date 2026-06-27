@@ -20,8 +20,38 @@ body {
   margin: 0;
   font-family: Inter, "Segoe UI", Roboto, sans-serif;
   color: var(--text);
-  background: linear-gradient(135deg, var(--bg) 0%, #081722 100%);
+  position: relative;
+  background-color: #020912;
+  background-image:
+    radial-gradient(circle at 15% 12%, rgba(86, 214, 166, 0.24), transparent 18%),
+    radial-gradient(circle at 82% 88%, rgba(107, 168, 255, 0.18), transparent 20%),
+    linear-gradient(120deg, #081a2d 0%, #061a2d 20%, #081822 50%, #071021 80%, #020711 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: left top, right bottom, center center;
+  background-size: 28%, 30%, cover;
   line-height: 1.6;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at top left, rgba(86, 214, 166, 0.08), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(107, 168, 255, 0.06), transparent 22%);
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main,
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 img {
@@ -267,10 +297,15 @@ h1 {
 }
 
 .expertise-grid,
-.visual-grid,
-.author-grid {
+.visual-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
