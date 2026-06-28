@@ -49,8 +49,68 @@
             <a class="contact-link" href="https://semicomm.substack.com" target="_blank" rel="noopener">semicomm.substack.com</a>
             <p>We typically respond within one business day.</p>
           </div>
-          <div class="quote-box">
-            <p>“Semiconductor strategy is moving faster than ever. The right insight makes the difference.”</p>
+          <div class="contact-side">
+            <div class="quote-box">
+              <p>“Semiconductor strategy is moving faster than ever. The right insight makes the difference.”</p>
+            </div>
+            <div class="tabs">
+              <input type="radio" id="tab-services" name="service-tab" checked>
+              <label for="tab-services">Services</label>
+              <input type="radio" id="tab-book" name="service-tab">
+              <label for="tab-book">Book a session</label>
+
+              <div class="tab-panels">
+                <div class="tab-panel panel-services">
+                  <div class="card-grid three-up">
+                    <article class="card">
+                      <h3>Market Intelligence and Extended Training</h3>
+                    </article>
+                    <article class="card">
+                      <h3>Troubleshooting Semiconductor Processes</h3>
+                    </article>
+                    <article class="card">
+                      <h3>Supply Chain Strategy</h3>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="tab-panel panel-book">
+                  <form class="booking-form" action="https://formsubmit.co/semiconductorscommunication@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New booking request from SemiComm website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <div class="form-field">
+                      <label for="booking-name">Name</label>
+                      <input type="text" id="booking-name" name="Name" required>
+                    </div>
+                    <div class="form-field">
+                      <label for="booking-phone">Phone number</label>
+                      <input type="tel" id="booking-phone" name="Phone" required>
+                    </div>
+                    <div class="form-field">
+                      <label for="booking-email">Email</label>
+                      <input type="email" id="booking-email" name="Email" required>
+                    </div>
+                    <div class="form-field">
+                      <label for="booking-position">Job position</label>
+                      <input type="text" id="booking-position" name="Job Position">
+                    </div>
+                    <div class="form-field">
+                      <label for="booking-company">Company/University</label>
+                      <input type="text" id="booking-company" name="CompanyOrUniversity">
+                    </div>
+                    <div class="form-field">
+                      <label for="booking-query">Query</label>
+                      <textarea id="booking-query" name="Query" rows="5" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                      <button class="button primary booking-cta" type="submit">Send request</button>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </section>
