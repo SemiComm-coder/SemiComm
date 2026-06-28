@@ -677,7 +677,7 @@ h3 {
   color: var(--muted);
   font-size: 0.82rem;
   font-style: italic;
-  text-align: left;
+  text-align: center;
 }
 
 .article-table-wrap {
