@@ -383,8 +383,17 @@ h3 {
   padding-top: 3.5rem;
 }
 
+.hero-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero-media img {
   width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
   border-radius: 1.2rem;
   border: 1px solid var(--border);
   box-shadow: 0 16px 40px rgba(2, 8, 20, 0.25);
