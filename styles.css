@@ -673,7 +673,7 @@ h3 {
   font-style: italic;
 }
 
-.article-note {
+.full-article .article-note {
   color: var(--muted);
   font-size: 0.82rem;
   font-style: italic;
