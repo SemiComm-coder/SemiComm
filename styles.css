@@ -426,6 +426,70 @@ h3 {
   text-decoration: none;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.subscribe-box {
+  margin-top: 1.4rem;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.subscribe-box-inline {
+  margin-top: 1.6rem;
+}
+
+.subscribe-box h3 {
+  margin-bottom: 0.45rem;
+}
+
+.subscribe-box p {
+  margin-top: 0;
+}
+
+.subscribe-form {
+  margin-top: 0.9rem;
+}
+
+.subscribe-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.subscribe-row input[type="email"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+.subscribe-row input[type="email"]:focus {
+  outline: none;
+  border-color: rgba(86, 214, 166, 0.5);
+  box-shadow: 0 0 0 3px rgba(86, 214, 166, 0.12);
+}
+
+.subscribe-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.7rem;
+}
+
 .quote-box {
   padding: 1.5rem;
   color: var(--muted);
@@ -898,6 +962,10 @@ h3 {
   .cta-box {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .subscribe-row {
+    grid-template-columns: 1fr;
   }
 
   .comment-grid {
