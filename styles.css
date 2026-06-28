@@ -656,6 +656,12 @@ h3 {
   text-decoration: none;
 }
 
+.article-preview p {
+  max-width: none;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .article-preview h3 a:hover {
   text-decoration: underline;
 }
