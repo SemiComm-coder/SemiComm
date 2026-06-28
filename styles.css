@@ -506,6 +506,10 @@ h3 {
   margin-top: 1.75rem;
 }
 
+.trending-stack {
+  grid-template-columns: 1fr;
+}
+
 .card,
 .insight-card {
   padding: 1.4rem;
