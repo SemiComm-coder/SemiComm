@@ -37,11 +37,14 @@ commentForms.forEach((form) => {
 
 		list.innerHTML = comments
 			.map(
-				(entry) => `
+				(entry, index) => `
 					<article class="comment-card">
 						<div class="comment-header">
-							<span>${entry.name}</span>
-							<span>${entry.date}</span>
+							<div class="comment-meta">
+								<span>${entry.name}</span>
+								<span>${entry.date}</span>
+							</div>
+							<button class="comment-delete" type="button" data-comment-delete="${index}">Delete</button>
 						</div>
 						<p class="comment-reaction">${entry.reaction}</p>
 						<p>${entry.comment}</p>
@@ -50,6 +53,25 @@ commentForms.forEach((form) => {
 			)
 			.join('');
 	};
+
+	list.addEventListener('click', (event) => {
+		const deleteButton = event.target.closest('[data-comment-delete]');
+
+		if (!deleteButton) {
+			return;
+		}
+
+		const commentIndex = Number(deleteButton.dataset.commentDelete);
+		const comments = readComments();
+
+		if (Number.isNaN(commentIndex) || commentIndex < 0 || commentIndex >= comments.length) {
+			return;
+		}
+
+		comments.splice(commentIndex, 1);
+		writeComments(comments);
+		renderComments();
+	});
 
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
