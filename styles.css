@@ -510,6 +510,12 @@ h3 {
   grid-template-columns: 1fr;
 }
 
+.trending-stack .card p {
+  max-width: none;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .card,
 .insight-card {
   padding: 1.4rem;
