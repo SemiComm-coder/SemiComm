@@ -14,10 +14,44 @@ commentForms.forEach((form) => {
 	}
 
 	const storageKey = `semicomm-comments:${window.location.pathname}`;
+	const viewerKey = 'semicomm-comment-owner';
+
+	const getViewerId = () => {
+		const existingViewerId = localStorage.getItem(viewerKey);
+
+		if (existingViewerId) {
+			return existingViewerId;
+		}
+
+		const generatedViewerId = `viewer-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+		localStorage.setItem(viewerKey, generatedViewerId);
+		return generatedViewerId;
+	};
+
+	const viewerId = getViewerId();
 
 	const readComments = () => {
 		try {
-			return JSON.parse(localStorage.getItem(storageKey) || '[]');
+			const storedComments = JSON.parse(localStorage.getItem(storageKey) || '[]');
+			let didMutate = false;
+			const normalizedComments = storedComments.map((entry) => {
+				if (entry.ownerId && entry.id) {
+					return entry;
+				}
+
+				didMutate = true;
+				return {
+					...entry,
+					id: entry.id || `comment-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+					ownerId: entry.ownerId || viewerId
+				};
+			});
+
+			if (didMutate) {
+				localStorage.setItem(storageKey, JSON.stringify(normalizedComments));
+			}
+
+			return normalizedComments;
 		} catch {
 			return [];
 		}
@@ -44,7 +78,7 @@ commentForms.forEach((form) => {
 								<span>${entry.name}</span>
 								<span>${entry.date}</span>
 							</div>
-							<button class="comment-delete" type="button" data-comment-delete="${index}">Delete</button>
+							${entry.ownerId === viewerId ? `<button class="comment-delete" type="button" data-comment-delete="${index}">Delete</button>` : ''}
 						</div>
 						<p class="comment-reaction">${entry.reaction}</p>
 						<p>${entry.comment}</p>
@@ -87,6 +121,8 @@ commentForms.forEach((form) => {
 
 		const comments = readComments();
 		comments.unshift({
+			id: `comment-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+			ownerId: viewerId,
 			name,
 			reaction,
 			comment,
