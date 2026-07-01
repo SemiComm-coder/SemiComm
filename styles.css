@@ -522,6 +522,10 @@ h3 {
   text-align: center;
 }
 
+.author-card p:not(.author-role) {
+  text-align: justify;
+}
+
 .author-photo {
   width: 120px;
   height: 150px;
