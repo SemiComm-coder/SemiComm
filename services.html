@@ -121,7 +121,13 @@
                   </div>
                   <div class="form-field">
                     <label for="booking-service">Service for consultation</label>
-                    <select id="booking-service" name="Consultation Service" required>
+                    <select
+                      id="booking-service"
+                      name="Consultation Service"
+                      required
+                      oninvalid="this.setCustomValidity('Please select a service for consultation.')"
+                      onchange="this.setCustomValidity('')"
+                    >
                       <option value="" selected disabled>Select a service</option>
                       <option value="Semiconductor Training & Technical Workshops">Semiconductor Training & Technical Workshops</option>
                       <option value="Semiconductor Process Troubleshooting">Semiconductor Process Troubleshooting</option>
