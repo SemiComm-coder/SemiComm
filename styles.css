@@ -582,6 +582,25 @@ h3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.service-pillars-grid .card h4 {
+  font-size: 0.98rem;
+  line-height: 1.4;
+  margin-top: 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.service-pillars-grid .card p,
+.service-pillars-grid .card li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.service-pillars-grid .card ul {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  padding-left: 1.1rem;
+}
+
 .trending-stack {
   grid-template-columns: 1fr;
 }
