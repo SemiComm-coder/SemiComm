@@ -926,6 +926,11 @@ h3 {
   box-shadow: 0 0 0 3px rgba(86, 214, 166, 0.12);
 }
 
+.form-field select:required:invalid {
+  border-color: rgba(255, 123, 123, 0.8);
+  box-shadow: 0 0 0 3px rgba(255, 123, 123, 0.16);
+}
+
 .form-actions {
   margin-top: 0.5rem;
 }
