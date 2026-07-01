@@ -578,6 +578,10 @@ h3 {
   margin-top: 1.75rem;
 }
 
+.card-grid.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .trending-stack {
   grid-template-columns: 1fr;
 }
@@ -904,6 +908,7 @@ h3 {
 }
 
 .form-field input,
+.form-field select,
 .form-field textarea {
   width: 100%;
   padding: 0.95rem 1rem;
@@ -914,6 +919,7 @@ h3 {
 }
 
 .form-field input:focus,
+.form-field select:focus,
 .form-field textarea:focus {
   outline: none;
   border-color: rgba(86, 214, 166, 0.5);
