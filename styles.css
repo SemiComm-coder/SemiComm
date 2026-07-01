@@ -526,6 +526,10 @@ h3 {
   text-align: justify;
 }
 
+.author-card .author-link {
+  text-align: center;
+}
+
 .author-photo {
   width: 120px;
   height: 150px;
