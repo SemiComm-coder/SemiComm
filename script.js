@@ -1,8 +1,26 @@
 const GA_MEASUREMENT_ID = 'G-4YFKX3VH3H';
-const LOOKER_STUDIO_EMBED_URL = '';
+const LOOKER_STUDIO_EMBED_URL = 'https://datastudio.google.com/reporting/ee56c249-8cc1-4e21-9e2b-6c9e51c38b55';
 
 const isValidGaMeasurementId = (id) => {
 	return /^G-[A-Z0-9]{6,12}$/.test(id) && id !== 'G-XXXXXXXXXX';
+};
+
+const normalizeLookerStudioEmbedUrl = (url) => {
+	if (!url) {
+		return '';
+	}
+
+	if (url.startsWith('https://lookerstudio.google.com/embed/reporting/')) {
+		return url;
+	}
+
+	const reportMatch = url.match(/^https:\/\/(?:datastudio|lookerstudio)\.google\.com\/reporting\/([a-z0-9-]+)/i);
+
+	if (!reportMatch) {
+		return '';
+	}
+
+	return `https://lookerstudio.google.com/embed/reporting/${reportMatch[1]}`;
 };
 
 const initializeGoogleAnalytics = () => {
@@ -59,15 +77,15 @@ const initializeAnalyticsPage = (gaId) => {
 	}
 
 	const configuredUrl = (window.SEMICOMM_LOOKER_STUDIO_EMBED_URL || LOOKER_STUDIO_EMBED_URL || '').trim();
-	const isLookerEmbed = configuredUrl.startsWith('https://lookerstudio.google.com/embed/reporting/');
+	const embedUrl = normalizeLookerStudioEmbedUrl(configuredUrl);
 
-	if (!isLookerEmbed) {
+	if (!embedUrl) {
 		dashboardPlaceholder.hidden = false;
 		dashboardFrame.hidden = true;
 		return;
 	}
 
-	dashboardFrame.src = configuredUrl;
+	dashboardFrame.src = embedUrl;
 	dashboardFrame.hidden = false;
 	dashboardPlaceholder.hidden = true;
 };
