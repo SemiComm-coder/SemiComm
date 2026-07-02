@@ -1,4 +1,4 @@
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-4YFKX3VH3H';
 const LOOKER_STUDIO_EMBED_URL = '';
 
 const isValidGaMeasurementId = (id) => {
