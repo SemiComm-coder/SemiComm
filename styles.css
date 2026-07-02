@@ -960,6 +960,40 @@ h3 {
   margin-top: 0.5rem;
 }
 
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.analytics-status {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.analytics-note,
+.analytics-placeholder {
+  color: rgba(239, 244, 250, 0.88);
+}
+
+.analytics-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.analytics-list li {
+  margin-bottom: 0.45rem;
+}
+
+.analytics-iframe {
+  width: 100%;
+  min-height: 900px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(8, 18, 32, 0.9);
+}
+
 .booking-cta {
   padding-inline: 1.45rem;
   font-size: 1rem;
@@ -995,6 +1029,7 @@ h3 {
   .about-grid,
   .card-grid,
   .insight-grid,
+  .analytics-grid,
   .about-layout,
   .contact-layout,
   .expertise-grid,

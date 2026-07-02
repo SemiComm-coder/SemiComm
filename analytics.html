@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Analytics | SemiComm</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-analytics-page>
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a href="index.html" class="brand">SemiComm</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="about.html">About</a>
+          <a href="trending.html">Trending</a>
+          <a href="articles.html">Articles</a>
+          <a href="services.html">Services</a>
+          <a href="authors.html">Authors</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero page-hero">
+        <div class="container">
+          <p class="eyebrow">Internal dashboard</p>
+          <h1>Website analytics overview</h1>
+          <p class="hero-copy">
+            Use this page to view visitor count, top-performing posts, traffic region, and source once analytics integrations are configured.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container analytics-grid">
+          <article class="card">
+            <h3>Connection status</h3>
+            <p class="analytics-status" data-ga-status>GA4 status: checking...</p>
+            <p class="analytics-note">
+              This setup uses Google Analytics 4 for tracking and an optional Looker Studio embed for a single internal dashboard view.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Setup checklist</h3>
+            <ol class="analytics-list">
+              <li>Create a Google Analytics 4 property and add your website stream.</li>
+              <li>Set your GA measurement ID in script.js by replacing G-XXXXXXXXXX.</li>
+              <li>Create a Looker Studio report from GA4 with these widgets: total users, top pages, users by country, and traffic source/medium.</li>
+              <li>Set the Looker Studio embed URL in script.js by replacing LOOKER_STUDIO_EMBED_URL.</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="section muted-section">
+        <div class="container">
+          <div class="section-intro">
+            <p class="eyebrow">Dashboard view</p>
+            <h2>Internal analytics report</h2>
+          </div>
+          <p class="analytics-placeholder" data-analytics-placeholder>
+            Add your Looker Studio embed URL in script.js to render the analytics dashboard here.
+          </p>
+          <iframe
+            class="analytics-iframe"
+            data-analytics-frame
+            title="SemiComm analytics dashboard"
+            loading="lazy"
+            hidden
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <p>© <span id="year"></span> SemiComm. Insight for the semiconductor era.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
