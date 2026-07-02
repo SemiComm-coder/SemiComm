@@ -1,3 +1,80 @@
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const LOOKER_STUDIO_EMBED_URL = '';
+
+const isValidGaMeasurementId = (id) => {
+	return /^G-[A-Z0-9]{6,12}$/.test(id) && id !== 'G-XXXXXXXXXX';
+};
+
+const initializeGoogleAnalytics = () => {
+	const configuredId = (window.SEMICOMM_GA_MEASUREMENT_ID || GA_MEASUREMENT_ID || '').trim();
+
+	if (!isValidGaMeasurementId(configuredId)) {
+		return null;
+	}
+
+	if (window.gtag) {
+		return configuredId;
+	}
+
+	window.dataLayer = window.dataLayer || [];
+	window.gtag = function gtag() {
+		window.dataLayer.push(arguments);
+	};
+
+	window.gtag('js', new Date());
+	window.gtag('config', configuredId, {
+		anonymize_ip: true,
+		send_page_view: true
+	});
+
+	const gaScript = document.createElement('script');
+	gaScript.async = true;
+	gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${configuredId}`;
+	document.head.appendChild(gaScript);
+
+	return configuredId;
+};
+
+const initializeAnalyticsPage = (gaId) => {
+	const analyticsPage = document.querySelector('[data-analytics-page]');
+
+	if (!analyticsPage) {
+		return;
+	}
+
+	const gaStatus = document.querySelector('[data-ga-status]');
+	const dashboardFrame = document.querySelector('[data-analytics-frame]');
+	const dashboardPlaceholder = document.querySelector('[data-analytics-placeholder]');
+
+	if (gaStatus) {
+		if (gaId) {
+			gaStatus.textContent = `GA4 status: connected (${gaId})`;
+		} else {
+			gaStatus.textContent = 'GA4 status: not configured yet (set GA_MEASUREMENT_ID in script.js).';
+		}
+	}
+
+	if (!dashboardFrame || !dashboardPlaceholder) {
+		return;
+	}
+
+	const configuredUrl = (window.SEMICOMM_LOOKER_STUDIO_EMBED_URL || LOOKER_STUDIO_EMBED_URL || '').trim();
+	const isLookerEmbed = configuredUrl.startsWith('https://lookerstudio.google.com/embed/reporting/');
+
+	if (!isLookerEmbed) {
+		dashboardPlaceholder.hidden = false;
+		dashboardFrame.hidden = true;
+		return;
+	}
+
+	dashboardFrame.src = configuredUrl;
+	dashboardFrame.hidden = false;
+	dashboardPlaceholder.hidden = true;
+};
+
+const activeGaMeasurementId = initializeGoogleAnalytics();
+initializeAnalyticsPage(activeGaMeasurementId);
+
 const yearElement = document.getElementById('year');
 
 if (yearElement) {
