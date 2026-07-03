@@ -1051,9 +1051,10 @@ h3 {
   .nav-links {
     width: 100%;
     display: flex;
-    gap: 0.8rem;
-    overflow-x: auto;
-    white-space: nowrap;
+    flex-wrap: wrap;
+    gap: 0.6rem 0.9rem;
+    overflow-x: visible;
+    white-space: normal;
     padding-bottom: 0.2rem;
   }
 
@@ -1109,6 +1110,14 @@ h3 {
 @media (max-width: 560px) {
   .container {
     width: min(1120px, calc(100% - 1.25rem));
+  }
+
+  .nav-links {
+    gap: 0.5rem 0.75rem;
+  }
+
+  .nav-links a {
+    font-size: 0.96rem;
   }
 
   .hero-actions,
