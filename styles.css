@@ -127,6 +127,23 @@ img {
   padding: 5rem 0 3.5rem;
 }
 
+.top-brand-image-section {
+  padding: 0;
+}
+
+.top-brand-image-section .container {
+  width: 100%;
+  margin: 0;
+}
+
+.top-brand-image {
+  width: 100%;
+  max-height: clamp(200px, 36vw, 460px);
+  display: block;
+  margin: 0;
+  object-fit: cover;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
