@@ -1112,6 +1112,14 @@ h3 {
     width: min(1120px, calc(100% - 1.25rem));
   }
 
+  .top-brand-image {
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+    object-position: center;
+    background: rgba(4, 14, 27, 0.88);
+  }
+
   .nav-links {
     gap: 0.5rem 0.75rem;
   }
