@@ -722,6 +722,10 @@ h3 {
   box-shadow: 0 16px 38px rgba(2, 8, 20, 0.22);
 }
 
+.full-article-image.figure-market-growth {
+  width: 46%;
+}
+
 .article-comments {
   margin-top: 2.2rem;
   padding-top: 1.4rem;
@@ -1094,6 +1098,10 @@ h3 {
 
   .full-article-image {
     width: 100%;
+  }
+
+  .full-article-image.figure-market-growth {
+    width: 82%;
   }
 
   .tabs label {
