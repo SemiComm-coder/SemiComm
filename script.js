@@ -1,6 +1,6 @@
 const GA_MEASUREMENT_ID = 'G-4YFKX3VH3H';
 const LOOKER_STUDIO_EMBED_URL = 'https://datastudio.google.com/reporting/ee56c249-8cc1-4e21-9e2b-6c9e51c38b55';
-const SUBSCRIBER_DATABASE_ENDPOINT = '';
+const SUBSCRIBER_DATABASE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz6ycr78XkIFYALdxT16k49Bix2SsI8BgvcTDXVZyzo1kzXLk3rLj_4SHeCYQjQiX13/exec';
 
 const isValidGaMeasurementId = (id) => {
 	return /^G-[A-Z0-9]{6,12}$/.test(id) && id !== 'G-XXXXXXXXXX';
