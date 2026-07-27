@@ -1,5 +1,6 @@
 const GA_MEASUREMENT_ID = 'G-4YFKX3VH3H';
 const LOOKER_STUDIO_EMBED_URL = 'https://datastudio.google.com/reporting/ee56c249-8cc1-4e21-9e2b-6c9e51c38b55';
+const SUBSCRIBER_DATABASE_ENDPOINT = '';
 
 const isValidGaMeasurementId = (id) => {
 	return /^G-[A-Z0-9]{6,12}$/.test(id) && id !== 'G-XXXXXXXXXX';
@@ -98,6 +99,95 @@ const yearElement = document.getElementById('year');
 if (yearElement) {
 	yearElement.textContent = new Date().getFullYear();
 }
+
+const getSubscriberDatabaseEndpoint = () => {
+	return (window.SEMICOMM_SUBSCRIBER_DATABASE_ENDPOINT || SUBSCRIBER_DATABASE_ENDPOINT || '').trim();
+};
+
+const renderSubscriberStatus = (form, message, isError = false) => {
+	let statusElement = form.parentElement.querySelector('[data-subscribe-status]');
+
+	if (!statusElement) {
+		statusElement = document.createElement('p');
+		statusElement.className = 'subscribe-note';
+		statusElement.setAttribute('data-subscribe-status', 'true');
+		statusElement.setAttribute('role', 'status');
+		statusElement.setAttribute('aria-live', 'polite');
+		form.insertAdjacentElement('afterend', statusElement);
+	}
+
+	statusElement.textContent = message;
+	statusElement.style.color = isError ? '#8b1d1d' : '';
+};
+
+const initializeSubscriberForms = () => {
+	const subscriberForms = document.querySelectorAll('.subscribe-form');
+
+	subscriberForms.forEach((form) => {
+		form.addEventListener('submit', async (event) => {
+			const endpoint = getSubscriberDatabaseEndpoint();
+
+			if (!endpoint) {
+				return;
+			}
+
+			event.preventDefault();
+
+			if (form.dataset.subscriberPending === 'true') {
+				return;
+			}
+
+			form.dataset.subscriberPending = 'true';
+
+			const formData = new FormData(form);
+			const email =
+				(formData.get('Subscriber Email') || formData.get('email') || '')
+					.toString()
+					.trim()
+					.toLowerCase();
+			const source = (formData.get('Source') || 'Global subscription form').toString().trim();
+			const scope = (formData.get('Subscription Scope') || 'All pages (site-wide)').toString().trim();
+
+			if (!email) {
+				renderSubscriberStatus(form, 'Please enter a valid email address.', true);
+				form.dataset.subscriberPending = 'false';
+				return;
+			}
+
+			const payload = {
+				email,
+				source,
+				scope,
+				page: window.location.pathname,
+				referrer: document.referrer || '',
+				userAgent: navigator.userAgent,
+				submittedAt: new Date().toISOString()
+			};
+
+			try {
+				// Apps Script endpoints typically require no-cors browser posts.
+				await fetch(endpoint, {
+					method: 'POST',
+					mode: 'no-cors',
+					headers: {
+						'Content-Type': 'text/plain;charset=utf-8'
+					},
+					body: JSON.stringify(payload)
+				});
+
+				renderSubscriberStatus(form, 'Thank you. You are subscribed to all SemiComm updates.');
+				form.reset();
+			} catch {
+				renderSubscriberStatus(form, 'Subscriber database is unavailable. Your signup will be sent by email.', true);
+				HTMLFormElement.prototype.submit.call(form);
+			}
+
+			form.dataset.subscriberPending = 'false';
+		});
+	});
+};
+
+initializeSubscriberForms();
 
 const commentForms = document.querySelectorAll('[data-comment-form]');
 
