@@ -681,6 +681,11 @@ h3 {
   margin-bottom: 0.3rem;
 }
 
+.full-article > h1 {
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  margin-bottom: 0.45rem;
+}
+
 .full-article p {
   max-width: none;
   text-align: justify;
@@ -724,6 +729,36 @@ h3 {
   font-size: clamp(1.08rem, 2vw, 1.2rem);
   font-weight: 600;
   line-height: 1.45;
+}
+
+.pdf-viewer {
+  margin: 1.6rem 0 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.pdf-viewer iframe {
+  display: block;
+  width: 100%;
+  height: min(78vh, 920px);
+  min-height: 620px;
+  border: 0;
+  background: #fff;
+}
+
+.pdf-fallback {
+  padding: 1rem 1.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
 }
 
 .full-article-image {
@@ -1126,6 +1161,10 @@ h3 {
     min-height: 620px;
   }
 
+  .pdf-viewer iframe {
+    min-height: 560px;
+  }
+
 }
 
 @media (max-width: 560px) {
@@ -1178,5 +1217,9 @@ h3 {
 
   .analytics-iframe {
     min-height: 520px;
+  }
+
+  .pdf-viewer iframe {
+    min-height: 480px;
   }
 }
